@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/react-native-blur.svg)](https://badge.fury.io/js/react-native-blur)
+[![npm version](https://badge.fury.io/js/rn-blur.svg)](https://badge.fury.io/js/rn-blur)
 
 ### React Native Blur
 
