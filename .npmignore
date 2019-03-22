@@ -1,4 +1,11 @@
-examples
+# Logs
+*.log
+npm-debug.log
 
-# Assets
-docs
+# Runtime data
+tmp
+build
+dist
+
+# Dependency directory
+node_modules

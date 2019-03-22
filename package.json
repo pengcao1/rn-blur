@@ -1,5 +1,5 @@
 {
-  "name": "react-native-blur",
+  "name": "rn-blur",
   "version": "3.2.2",
   "description": "React Native Blur component",
   "main": "index.js",
@@ -8,20 +8,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-native-community/react-native-blur.git"
+    "url": "git+ssh://git@github.com/pengcao1/rn-blur.gitgit"
   },
   "keywords": [
     "react-native",
     "ios",
     "react-component"
   ],
-  "author": "Alexey Kureev <kureev-mail@ya.ru> (https://github.com/Kureev)",
+  "author": "a3825aa@gmail.com (https://github.com/pengcao1)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/react-native-community/react-native-blur/issues"
+    "url": "https://github.com/pengcao1/rn-blur/issues"
   },
-  "homepage": "https://github.com/react-native-community/react-native-blur",
+  "homepage": "https://github.com/pengcao1/rn-blur",
   "dependencies": {
     "prop-types": "^15.5.10"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "devDependencies": {
+    "metro-react-native-babel-preset": "^0.53.1"
   }
 }

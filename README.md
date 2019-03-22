@@ -9,26 +9,33 @@ A component for UIVisualEffectView's blur and vibrancy effect on iOS, and [500px
 
 ### Content
 
+- [React Native Blur](#react-native-blur)
+- [Content](#content)
 - [Installation](#installation)
 - [BlurView](#blurview)
 - [VibrancyView](#vibrancyview)
-- [Example React Native app](#example-react-native-app)
+- [Android](#android)
+- [Example React Native App](#example-react-native-app)
+  - [Run the iOS app](#run-the-ios-app)
+  - [Run the tvOS app](#run-the-tvos-app)
+  - [Run the Android app](#run-the-android-app)
+- [Troubleshooting](#troubleshooting)
 - [Questions?](#questions)
 
 
 ### Installation
 
-**NOTE:** Latest version of the package is available in npm as `react-native-blur@3.0.0-alpha`
+**NOTE:** Latest version of the package is available in npm as `rn-blur@3.0.0-alpha`
 
 1. Install package via npm:
 
   ```
-  npm install react-native-blur
+  npm install rn-blur
   ```
 
 2. Link your native dependencies:
   ```
-  react-native link react-native-blur
+  react-native link rn-blur
   ```
 
 3. (Android only) Add the following to `android/app/build.gradle`
@@ -50,11 +57,11 @@ android {
 4. Include the library in your code:
 
   ```javascript
-  import { BlurView, VibrancyView } from 'react-native-blur';
+  import { BlurView, VibrancyView } from 'rn-blur';
 
   // OR
 
-  const { BlurView, VibrancyView } = require('react-native-blur');
+  const { BlurView, VibrancyView } = require('rn-blur');
   ```
 
 5. Compile and have fun!
@@ -81,7 +88,7 @@ android {
 ```javascript
 import React, { Component } from 'react';
 import { View, Image, Text, findNodeHandle, StyleSheet } from 'react-native';
-import { BlurView } from 'react-native-blur';
+import { BlurView } from 'rn-blur';
 
 export default class Menu extends Component {
   constructor(props) {
@@ -139,7 +146,7 @@ Note that `viewRef` is only required if you need to support Android. See the [An
 > (Note: `VibrancyView` is only supported on iOS. Also note that the `VibrancyView` must contain nested views.)
 
 ```javascript
-import { VibrancyView } from 'react-native-blur';
+import { VibrancyView } from 'rn-blur';
 
 export default class Menu extends Component {
   render() {
@@ -181,13 +188,13 @@ You can run the apps by following these steps:
 
 ```
 cd ~
-git clone https://github.com/react-native-community/react-native-blur.git
+git clone https://github.com/react-native-community/rn-blur.git
 ```
 
 2. cd to `examples/Basic`
 
 ```
-cd react-native-blur/examples/Basic
+cd rn-blur/examples/Basic
 ```
 
 3. Install dependencies
@@ -229,7 +236,7 @@ Select RNBlur-tvOS
 
 <img src="./docs/tvOS-step-4.jpg" width="40%">
 
-That’s all, you can use react-native-blur for your tvOS application
+That’s all, you can use rn-blur for your tvOS application
 
 #### Run the Android app
 
@@ -264,4 +271,4 @@ public class MainApplication extends Application implements ReactApplication {
 
 ### Questions?
 
-Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/react-native-blur/issues/new)
+Feel free to contact me in [twitter](https://twitter.com/kureevalexey) or [create an issue](https://github.com/Kureev/rn-blur/issues/new)

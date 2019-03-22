@@ -32,3 +32,8 @@ android/react-native-blur.iml
 
 # Misc
 .idea/
+
+# Runtime data
+tmp
+build
+dist
