@@ -54,17 +54,34 @@ android {
 }
 ```
 
-4. Include the library in your code:
+4. (Android only, optional) 
+If you've defined _[project-wide properties](https://developer.android.com/studio/build/gradle-tips.html)_ (**recommended**) in your root `build.gradle`, this library will detect the presence of the following properties:
+
+```groovy
+buildscript {...}
+allprojects {...}
+
+/**
+  + Project-wide Gradle configuration properties
+  */
+ext {
+    compileSdkVersion   = 27
+    targetSdkVersion    = 27
+    buildToolsVersion   = "27.0.3"
+}
+```
+
+5. Include the library in your code:
 
   ```javascript
-  import { BlurView, VibrancyView } from 'rn-blur';
+  import { BlurView, VibrancyView } from "rn-blur";
 
   // OR
 
   const { BlurView, VibrancyView } = require('rn-blur');
   ```
 
-5. Compile and have fun!
+6. Compile and have fun!
 
 
 ### BlurView
@@ -76,8 +93,8 @@ android {
   - `light` - light blur type
   - `dark` - dark blur type
   - `extraDark` - extra dark blur type (tvOS only)
-  - `regular` - regular blur type (tvOS only)
-  - `prominent` - prominent blur type (tvOS only)
+  - `regular` - regular blur type (iOS 10+ and tvOS only)
+  - `prominent` - prominent blur type (iOS 10+ and tvOS only)
 - `blurAmount` (Default: 10, Number)
   - `0-100` - Adjusts blur intensity
 
@@ -86,9 +103,9 @@ android {
 > Complete usage example that works on iOS and Android:
 
 ```javascript
-import React, { Component } from 'react';
-import { View, Image, Text, findNodeHandle, StyleSheet } from 'react-native';
-import { BlurView } from 'rn-blur';
+import React, { Component } from "react";
+import { View, Image, Text, findNodeHandle, StyleSheet } from "react-native";
+import { BlurView } from "rn-blur";
 
 export default class Menu extends Component {
   constructor(props) {
@@ -103,19 +120,21 @@ export default class Menu extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          ref={(img) => { this.backgroundImage = img; }}
-          source={{uri}}
-          style={styles.absolute}
-          onLoadEnd={this.imageLoaded.bind(this)}
-        />
+        <Text>Hi, I am some unblurred text</Text>
         <BlurView
           style={styles.absolute}
           viewRef={this.state.viewRef}
           blurType="light"
           blurAmount={10}
         />
-        <Text>Hi, I am some unblurred text</Text>
+        <Image
+          ref={img => {
+            this.backgroundImage = img;
+          }}
+          source={{ uri }}
+          style={styles.absolute}
+          onLoadEnd={this.imageLoaded.bind(this)}
+        />
       </View>
     );
   }
@@ -123,13 +142,16 @@ export default class Menu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   absolute: {
     position: "absolute",
-    top: 0, left: 0, bottom: 0, right: 0,
-  },
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  }
 });
 ```
 
@@ -151,7 +173,7 @@ import { VibrancyView } from 'rn-blur';
 export default class Menu extends Component {
   render() {
     return (
-      <Image source={{uri}} style={styles.absolute}>
+      <Image source={{ uri }} style={styles.absolute}>
         <VibrancyView blurType="light" style={styles.flex}>
           <Text>Hi, I am some vibrant text.</Text>
         </VibrancyView>
@@ -167,17 +189,16 @@ Android uses the [500px-android-blur](https://github.com/500px/500px-android-blu
 
 The Android library introduces some limitations:
 
-* `BlurView` cannot be a child of the view that is being blurred (this would cause an infinite loop)
-* `BlurView` cannot contain any child components.
+- `BlurView` cannot be a child of the view that is being blurred (this would cause an infinite loop)
+- `BlurView` cannot contain any child components.
 
 If you only need to support iOS, then you can safely ignore these limitations.
 
 In addition to `blurType` and `blurAmount`, Android has some extra props that can be used to override the default behavior (or configure Android-specific behavior):
 
-- `blurRadius`       (Number - between 0 and 25) - Manually adjust the blur radius. (Default: matches iOS blurAmount)
+- `blurRadius` (Number - between 0 and 25) - Manually adjust the blur radius. (Default: matches iOS blurAmount)
 - `downsampleFactor` (Number - between 0 and 25) - Scales down the image before blurring (Default: matches iOS blurAmount)
-- `overlayColor`     (Color) - Set a custom overlay color (Default color based on iOS blurType)
-
+- `overlayColor` (Color) - Set a custom overlay color (Default color based on iOS blurType)
 
 ### Example React Native App
 
@@ -191,10 +212,10 @@ cd ~
 git clone https://github.com/react-native-community/rn-blur.git
 ```
 
-2. cd to `examples/Basic`
+2. cd to `example`
 
 ```
-cd rn-blur/examples/Basic
+cd rn-blur/examples/example
 ```
 
 3. Install dependencies
